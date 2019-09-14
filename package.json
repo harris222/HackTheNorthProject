@@ -1,0 +1,23 @@
+{
+  "name": "hackthenorthproject",
+  "version": "1.0.0",
+  "description": "Project matching web app for hack the north",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harris222/HackTheNorthProject.git"
+  },
+  "author": "Paco Sanchez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harris222/HackTheNorthProject/issues"
+  },
+  "homepage": "https://github.com/harris222/HackTheNorthProject#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "router": "^1.3.3"
+  }
+}
