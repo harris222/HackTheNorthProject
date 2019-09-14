@@ -4,7 +4,7 @@ const middleware = require("../middleware");
 const User = require("../models/user");
 const Event = require("../models/event");
 
-// Index - show all buildings
+// Index - show all events
 router.get("/", (req, res) => {
     Event.find({}, (err, allEvents) => {
         if(err) {
@@ -50,7 +50,7 @@ router.get("/new", (req, res) => {
 
 // SHOW - shows more info about one building
 router.get("/:id", (req, res) => {
-    Building.findById(req.params.id).populate("participants").exec((err, foundEvent) => {
+    Event.findById(req.params.id).populate("participants").exec((err, foundEvent) => {
         if(err) {
             console.log(err);
             res.redirect("/events");

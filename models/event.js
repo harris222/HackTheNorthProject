@@ -21,6 +21,4 @@ const eventSchema = new mongoose.Schema({
     ]
 });
 
-userSchema.plugin(passportLocalMongoose);
-
 module.exports = mongoose.model("Event", eventSchema);
