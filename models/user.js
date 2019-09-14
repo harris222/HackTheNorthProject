@@ -2,7 +2,9 @@ const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const userSchema = new mongoose.Schema({
-    username: String,
+    firstName: String,
+    lastName: String,
+    email: String,
     password: String,
     gender: Boolean, //true: male; false: female
     sleepAtNight: Boolean,
