@@ -1,1 +1,26 @@
-var event = "not implemented";
+const mongoose = require("mongoose");
+
+const eventSchema = new mongoose.Schema({
+    name: String,
+    description: String,
+    image: String,
+    location: String,
+    date: Date,
+    owner: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        },
+        username: String
+    },
+    participants: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ]
+});
+
+userSchema.plugin(passportLocalMongoose);
+
+module.exports = mongoose.model("Event", eventSchema);

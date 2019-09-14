@@ -1,0 +1,14 @@
+<% include ./partials/header %>
+<div class="container">
+    <h1>Register</h1>
+    <div class="row">
+        <div class="col">
+            <form action="/register" method="POST">
+                <input type="text" name="username" placeholder="username">
+                <input type="password" name="password" placeholder="password">
+                <button class="btn btn-primary">Register!</button>
+            </form>
+        </div>
+    </div>
+</div>
+<% include ./partials/footer%>

@@ -1,21 +1,41 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const User = require("../models/user");
 
 router.get("/login", (req, res) =>{
     res.render("login");
 });
 
+router.post("/login", passport.authenticate("local", {
+    successRedirect: "/events",
+    failureRedirect: "/login"
+}), (req, res) => {
+    //
+});
+
+router.get("/register", (req, res) =>{
+    res.render("register")
+});
+
+router.post("/register", (req, res) => {
+    var newUser = new User({username: req.body.username});
+    User.register(newUser, req.body.password, (err, user) => {
+        if (err) {
+            console.log(err);
+            req.flash("error", err.message);
+            res.redirect("/register");
+        } else {
+            passport.authenticate("local")(req, res, () => {
+                res.redirect("/login");
+            });
+        }
+    });
+});
+
 router.get("/", (req, res) => {
     res.redirect("login");
 });
-
-// router.post("/login", passport.authenticate("local", {
-//     successRedirect: "/menu",
-//     failureRedirect: "/login"
-// }), (req, res) => {
-//     //
-// });
 
 function pullData(){
 
@@ -45,5 +65,4 @@ api.getResponses({id:'188715488'},function (error, data) {
 });
     
 }
-
 module.exports = router;

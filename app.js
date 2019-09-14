@@ -9,11 +9,12 @@ const methodOverride = require("method-override");
     
 const User = require("./models/user");
 
-indexRoutes = require("./routes/index");
+var indexRoutes = require("./routes/index");
+var eventRoutes = require("./routes/events");
 
 const port = process.env.PORT || 3000;
 
-mongoose.connect("mongodb+srv://pcsanchez:water@4pair-cmu0t.mongodb.net/test?retryWrites=true&w=majority", {useUnifiedTopology: true, useNewUrlParser: true }, (err) => {
+mongoose.connect("mongodb+srv://pcsanchez:water@cluster0-cmu0t.mongodb.net/test?retryWrites=true&w=majority", {useUnifiedTopology: true, useNewUrlParser: true }, (err) => {
   if(err) {
     console.log("DATABASE ERROR");
     console.log(err);
@@ -48,6 +49,7 @@ app.use((req, res, next) => {
 });
 
 app.use(indexRoutes);
+app.use(eventRoutes);
 
 app.listen(port, () => {
   console.log("Mathching web app started on port: " + port);
