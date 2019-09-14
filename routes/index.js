@@ -34,9 +34,10 @@ router.post("/register", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-    res.redirect("login");
+    res.render("landing");
 });
 
+<<<<<<< HEAD
 function pullData(){
 
 var SurveyMonkeyAPI = require('surveymonkey').SurveyMonkeyAPI;
@@ -65,4 +66,6 @@ api.getResponses({id:'188715488'},function (error, data) {
 });
 
 }
+=======
+>>>>>>> 5ebbebe001cc4e659e7dc639f46ae072229596b6
 module.exports = router;
