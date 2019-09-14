@@ -1,14 +1,93 @@
 <% include ./partials/header %>
-<div class="container">
-    <h1>Register</h1>
-    <div class="row">
-        <div class="col">
-            <form action="/register" method="POST">
-                <input type="text" name="username" placeholder="username">
-                <input type="password" name="password" placeholder="password">
-                <button class="btn btn-primary">Register!</button>
-            </form>
+<style>
+  body{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    overflow: none;
+  }
+</style>
+
+<link href= "stylesheets/register.css" rel="stylesheet" type="text/css" />
+
+  <div class="container-fluid">
+      <div id="registrationForm">
+        <h1 id = "titleText">Register</h1>
+        <div class="row">
+            <div class="col">
+                <form action="/register" method="POST">
+                    <div class="form-group">
+                       <div class="labels"><label for="firstName">First Name:</label></div>
+                       <input type="firstName" class="form-control" name="firstName" aria-describedby="emailHelp" placeholder="Enter First Name">
+                    </div>
+
+                    <div class="form-group">
+                       <div class="labels"><label for="lastName">Last Name:</label></div>
+                       <input type="lastName" class="form-control" name="lastName" aria-describedby="emailHelp" placeholder="Enter Last Name">
+                    </div>
+
+                    <div class="form-group">
+                       <div class="labels"><label for="gender">Gender:</label></div>
+                       <input type="gender" class="form-control" name="gender" aria-describedby="emailHelp" placeholder="Enter Gender">
+                    </div>
+
+                    <div class="form-group">
+                       <div class="labels"><label for="grade">Grade:</label></div>
+                       <input type="grade" class="form-control" name="grade" aria-describedby="emailHelp" placeholder="Enter Grade">
+                    </div>
+
+                    <div class="form-group slider">
+                      <label for="software">Software Skill:</label>
+                      <input type="range" class="form-control" name="software" min="1" max="5" value="3" class="slider">
+                      <div id="numberJustify">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group slider">
+                      <label for="hardware">Hardware Skill:</label>
+                      <input type="range" class="form-control" name="hardware" min="1" max="5" value="3" class="slider">
+                      <div id="numberJustify">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="labels"><label for="sleep">Do you sleep at night?</label></div>
+                      <select id="reverseList" name="sleep">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                      </select>
+
+                    </div>
+
+                    <div class="form-group">
+                       <div class="labels"><label for="grade">Your most proficient skills: </label></div>
+
+                      <div> 1. <input type="text" name="skills[]" value=""/></div>
+                      <div> 2. <input type="text" name="skills[]" value=""/></div>
+                      <div> 3. <input type="text" name="skills[]" value=""/></div>
+                      <div> 4. <input type="text" name="skills[]" value=""/></div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="labels"><label for="grade">Description: </label></div>
+                      <div id="description"><textarea class="form-control" placeholder="Say something about yourself"></textarea></div>
+                    </div>
+
+                    <button class="btn btn-primary btn-block">Register!</button>
+                </form>
+            </div>
         </div>
-    </div>
-</div>
+      </div>
+  </div>
 <% include ./partials/footer%>
