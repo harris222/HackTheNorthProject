@@ -31,7 +31,8 @@ router.post("/", (req, res) => {
         name: name,
         description: description,
         image: image,
-        location: location
+        location: location,
+        owner: owner
     };
 
     Event.create(newEvent, (err, newEv) => {

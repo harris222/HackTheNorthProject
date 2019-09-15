@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
 
-const eventSchema = new mongoose.Schema({
+const projectSchema = new mongoose.Schema({
     name: String,
     description: String,
-    image: String,
-    location: String,
     owner: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
@@ -12,7 +10,7 @@ const eventSchema = new mongoose.Schema({
         },
         username: String
     },
-    participants: [
+    teamMembers: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
@@ -20,4 +18,4 @@ const eventSchema = new mongoose.Schema({
     ]
 });
 
-module.exports = mongoose.model("Event", eventSchema);
+module.exports = mongoose.model("Project", projectSchema);

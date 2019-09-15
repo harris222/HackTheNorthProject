@@ -1,27 +1,59 @@
 <% include ./partials/header %>
-<div class="container">
-    <h1>Login</h1>
-    <div class="row">
-        <div class="col">
-            <form action="/login" method="POST">
-                <div class="form-group">
-                    <input type="email" class="form-control" id="username" name="username"
-                        placeholder="Enter your email">
-                </div>
-                <br>
-                <div class="form-control">
-                    <input type="password" class="form-control" id="password" name="password"
-                        placeholder="Enter your password">
-                </div>
-                <br>
-                <input type="submit" class="btn btn-primary" value="Login">
-            </form>
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="stylesheets/fonts/icomoon/style.css">
+<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+<link rel="stylesheet" href="stylesheets/magnific-popup.css">
+<link rel="stylesheet" href="stylesheets/jquery-ui.css">
+<link rel="stylesheet" href="stylesheets/owl.carousel.min.css">
+<link rel="stylesheet" href="stylesheets/owl.theme.default.min.css">
+<link rel="stylesheet" href="stylesheets/bootstrap-datepicker.css">
+<link rel="stylesheet" href="stylesheets/fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="stylesheets/aos.css">
+
+<!-- Your style -->
+<link href= "stylesheets/style1.css" rel="stylesheet" type="text/css" />
+
+<style>
+  body{
+        width: 100%;
+        height: 100%;
+        background-color: #232531;
+        overflow: none;
+  }
+</style>
+
+
+  <div class="container-fluid" id="fluid">
+      <div id="registrationForm">
+        <h1 id = "titleText">Login</h1>
+        <div class="row">
+            <div class="col">
+                <form action="/login" method="POST">
+
+                    <div class="form-group">
+                       <div class="labels"><label for="email">Email</label></div>
+                       <input type="lastName" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter your email adress">
+                    </div>
+
+                    <div class="form-group">
+                       <div class="labels"><label for="password">Password</label></div>
+                       <input type="passsword" class="form-control" name="password" aria-describedby="emailHelp" placeholder="Enter your password">
+                    </div>
+
+ 
+                    <button class="btn btn-primary btn-block">login</button>
+                    <a href="profile.html" class="btn-custom" data-aos="fade-up" data-aos-delay="400"><span>login</span></a>
+
+
+                </form>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <a href="/register">Register here</a>
-        </div>
-    </div>
-</div>
-<% include ./partials/footer %>
+      </div>
+  </div>
+<% include ./partials/footer%>
