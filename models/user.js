@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         }
-    ]
+    ],
     events: [
         {
             type: mongoose.Schema.Types.ObjectId,
