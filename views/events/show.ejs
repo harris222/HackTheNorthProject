@@ -102,20 +102,7 @@
       <div class="col-lg-6 ml-auto order-lg-1">
         <h2 class="text-white mb-4 name" data-aos="fade-left" data-aos-delay="200"> <%= user.firstName + " " + user.lastName %> </h2>
         <div class="bio pr-lg-5">
-          <span class="text-uppercase text-primary d-block mb-3" data-aos="fade-right" data-aos-delay="300"><%= convertGrade(user.grade) %></span>
           <p class="mb-4" data-aos="fade-left" data-aos-delay="400"><%= user.personalDescription %></p>
-          <p data-aos="fade-left" data-aos-delay="500">
-              <% if (user.alreadyOnATeam){ %>
-                    Join <%= user.firstName %>'s team &mdash;
-              
-              <%} else { %>
-                    Invite <%= user.firstName %> &mdash;
-              
-              <% } %>
-              
-            <a href="#" class="p-2"><span class="icon-plus" onclick = "this.class = 'icon-check'"></span></a>
-
-          </p>
         </div>
       </div>
     </div>

@@ -62,23 +62,25 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/:id/add", (req, res) => {
-    console.log("entered");
     User.findById(req.user.id, (err, user) => {
         if(err) {
             console.log(err);
+            res.redirect("/events/" + req.params.id);
         } else {
-            Event.findByIdAndUpdate(req.params.id, (err, updatedEvent) =>{
-                if(err) {
+            Event.findById(req.params.id, (err,event) =>{
+                if(err){
                     console.log(err);
                     res.redirect("/events");
                 } else {
-                    console.log("here");
-                    updatedEvent.participants.push(user);
+                    event.participants.push(user);
+                    user.events.push(event);
+                    user.save();
+                    event.save();
                     res.redirect("/events/" + req.params.id);
                 }
             });
         }
-    })
+    });
 });
 
 module.exports = router;
