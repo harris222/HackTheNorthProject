@@ -5,7 +5,7 @@ const User = require("../models/user");
 const Event = require("../models/event");
 
 // Index - show all events
-router.get("/", (req, res) => {
+router.get("/events", (req, res) => {
     Event.find({}, (err, allEvents) => {
         if(err) {
             console.log(err);
