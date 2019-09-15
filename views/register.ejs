@@ -16,6 +16,8 @@
 <link rel="stylesheet" href="stylesheets/fonts/flaticon/font/flaticon.css">
 <link rel="stylesheet" href="stylesheets/aos.css">
 
+<script src="jquery-3.4.1.min.js"></script>
+
 <!-- Your style -->
 <link href= "stylesheets/style1.css" rel="stylesheet" type="text/css" />
 
@@ -34,7 +36,7 @@
         <h1 id = "titleText">Register</h1>
         <div class="row">
             <div class="col">
-                <form action="/register" method="POST">
+                <form name="myForm" action="/register" method="POST">
                     <div class="form-group">
                        <div class="labels"><label for="firstName">First Name:</label></div>
                        <input type="firstName" class="form-control" name="firstName" aria-describedby="emailHelp" placeholder="Enter First Name">
@@ -45,14 +47,35 @@
                        <input type="lastName" class="form-control" name="lastName" aria-describedby="emailHelp" placeholder="Enter Last Name">
                     </div>
 
+
+                    <div class="form-group">
+                       <div class="labels"><label for="email">First Name:</label></div>
+                       <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter Email">
+                    </div>
+
+                    <div class="form-group">
+                       <div class="labels"><label for="password">Password:</label></div>
+                       <input type="password" class="form-control" name="password" aria-describedby="emailHelp" placeholder="Enter Password">
+                    </div>
+
                     <div class="form-group">
                        <div class="labels"><label for="gender">Gender:</label></div>
                        <input type="gender" class="form-control" name="gender" aria-describedby="emailHelp" placeholder="Enter Gender">
+                       <small class="text-muted">Enter male, female, or other</small>
                     </div>
 
                     <div class="form-group">
                        <div class="labels"><label for="grade">Grade:</label></div>
-                       <input type="grade" class="form-control" name="grade" aria-describedby="emailHelp" placeholder="Enter Grade">
+                       <select id="grade" name="grade">
+                         <option value="11">Grade 11</option>
+                         <option value="12">Grade 12</option>
+                         <option value="1">University Year 1</option>
+                         <option value="2">University Year 2</option>
+                         <option value="3">University Year 3</option>
+                         <option value="4">University Year 4</option>
+                         <option value="0">Other</option>
+
+                       </select>
                     </div>
 
                     <div class="form-group slider">
@@ -86,7 +109,14 @@
                         <option value="yes">Yes</option>
                         <option value="no">No</option>
                       </select>
+                    </div>
 
+                    <div class="form-group">
+                      <div class="labels"><label for="win">Interest to win?</label></div>
+                      <select name="winningInterest">
+                        <option class="btn btn-warning" value="high">High</option>
+                        <option class="btn btn-primary" value="low">Low</option>
+                      </select>
                     </div>
 
                     <div class="form-group">
@@ -103,7 +133,9 @@
                       <div id="description"><textarea class="form-control" placeholder="Say something about yourself"></textarea></div>
                     </div>
 
-                    <button class="btn btn-primary btn-block">Register!</button>
+                    <div id="error" style="color:red;"></div>
+
+                    <button class="btn btn-primary btn-block" onsubmit="validate()">Register!</button>
                 </form>
             </div>
         </div>

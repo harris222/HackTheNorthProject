@@ -19,6 +19,10 @@
   width: 40%;
 }
 
+#buttonContainer{
+  left: 0px;
+}
+
 
 /* Base */
 body {
