@@ -58,8 +58,7 @@ router.get("/:id", (req, res) => {
             res.redirect("/events");
         } else {
             foundEvent.participants.forEach((usr) => {
-                console.log(usr._id);
-                if(usr._id === req.user.id) {
+                if(usr._id == req.user.id) {
                     found = true;
                 }
             });
