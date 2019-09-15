@@ -1,1 +1,15 @@
-<h1>Login works</h1>
+<% include ../partials/header %>
+
+<h1>Current events</h1>
+
+<% events.forEach((event) => { %>
+    <div class="row">
+        <div class="col">
+            <p class="lead"><%=event.name%></p>
+        </div>
+    </div>
+<%});%>
+
+<a class="btn btn-primary" href="/events/new">Create Event</a>
+
+<% include ../partials/footer %>

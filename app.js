@@ -49,7 +49,7 @@ app.use((req, res, next) => {
 });
 
 app.use(indexRoutes);
-app.use(eventRoutes);
+app.use("/events", eventRoutes);
 
 app.listen(port, () => {
   console.log("Mathching web app started on port: " + port);
