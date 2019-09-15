@@ -44,4 +44,10 @@ router.get("/", (req, res) => {
     res.render("landing");
 });
 
+router.get("/confirmConnection", (req, res) => {
+    res.render("login");
+});
+
+
+
 module.exports = router;
