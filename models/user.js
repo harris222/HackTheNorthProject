@@ -14,12 +14,6 @@ const userSchema = new mongoose.Schema({
     winningInterest: Boolean,
     personalDescription: String,
     alreadyOnATeam: Boolean,
-    teamMates: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        }
-    ],
     events: [
         {
             type: mongoose.Schema.Types.ObjectId,
