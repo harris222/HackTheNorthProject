@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-    <link rel="stylesheet" href="../../public/stylesheets/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="../../public/stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" href="../../public/stylesheets/magnific-popup.css">
-    <link rel="stylesheet" href="../../public/stylesheets/jquery-ui.css">
-    <link rel="stylesheet" href="../../public/stylesheets/owl.carousel.min.css">
-    <link rel="stylesheet" href="../../public/stylesheets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../../public/stylesheets/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="../../public/stylesheets/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="../../public/stylesheets/aos.css">
+    <link rel="stylesheet" href="stylesheets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/magnific-popup.css">
+    <link rel="stylesheet" href="stylesheets/jquery-ui.css">
+    <link rel="stylesheet" href="stylesheets/owl.carousel.min.css">
+    <link rel="stylesheet" href="stylesheets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="stylesheets/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="stylesheets/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="stylesheets/aos.css">
 
-    <link rel="stylesheet" href="../../public/stylesheets/templateStyle.css">
+    <link rel="stylesheet" href="stylesheets/templateStyle.css">
   </head>
   <body>
   
@@ -66,7 +66,7 @@
       <div class="container">
 
 <script>
-    function convertGrade(var grade){
+    function convertGrade(grade){
         
         if (grade == 11){
             return "Grade 11";
@@ -86,7 +86,7 @@
     }   
 </script>
 
-<% event.participants.forEach(function(user){ %>  //to be implemented loop  
+<% event.participants.forEach(function(user){ %>  
            
     <div class="row align-items-center speaker">
         <div class="col-lg-5 mb-5 mb-lg-0 order-lg-2" data-aos="fade" data-aos-delay="100">
@@ -94,7 +94,7 @@
         </div>
         
       <div class="col-lg-6 ml-auto order-lg-1">
-        <h2 class="text-white mb-4 name" data-aos="fade-left" data-aos-delay="200"> <% = user.firstName + " " + user.lastName %> </h2>
+        <h2 class="text-white mb-4 name" data-aos="fade-left" data-aos-delay="200"> <%= user.firstName + " " + user.lastName %> </h2>
         <div class="bio pr-lg-5">
           <span class="text-uppercase text-primary d-block mb-3" data-aos="fade-right" data-aos-delay="300"><%= convertGrade(user.grade) %></span>
           <p class="mb-4" data-aos="fade-left" data-aos-delay="400"><%= user.personalDescription %></p>
@@ -116,7 +116,7 @@
            
            
 
-<% }) %>
+<% }); %>
 
           
         </div>

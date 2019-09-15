@@ -5,7 +5,7 @@
 <% events.forEach((event) => { %>
     <div class="row">
         <div class="col">
-            <p class="lead"><%=event.name%></p>
+            <a href="/events/<%=event._id%>"><p class="lead"><%=event.name%></p></a>
         </div>
     </div>
 <%});%>
