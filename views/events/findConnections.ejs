@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Workshop &mdash; Colorlib Website Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/template%20assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../../public/template%20assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/template%20assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="../../public/template%20assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="../../public/template%20assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../public/template%20assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../public/template%20assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../../public/template%20assets/css/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../../public/template%20assets/css/aos.css">
+
+    <link rel="stylesheet" href="../../public/template%20assets/css/style.css">
+  </head>
+  <body>
+  
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+    <header class="site-navbar py-3" role="banner">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-11 col-xl-2">
+            <h1 class="mb-0"><a href="index.html" class="text-white h2 mb-0">4<span class="text-primary">Pair</span> </a></h1>
+          </div>
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                <li><a href="index.html">Find Events</a></li>
+                <li><a href="about.html">My Connections</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="site-section site-hero inner">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-10">
+            <span class="d-block mb-3 caption" data-aos="fade-up">Hack the North</span>
+            <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">Your Fellow Attendees</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container">
+
+<script>
+    function convertGrade(var grade){
+        
+        if (grade == 11){
+            return "Grade 11";
+        } else if (grade == 12){
+            return "Grade 12"
+        } else if (grade == 1){
+            return "Year 1, University"
+        } else if (grade == 2){
+            return "Year 2, University"
+        } else if (grade == 3){
+            return "Year 3, University"
+        } else if (grade == 4){
+            return "Year 4, University"
+        } else{
+            return "Not in school"
+        }   
+    }   
+</script>
+
+<% event.participants.forEach(function(user){ %>  //to be implemented loop  
+           
+    <div class="row align-items-center speaker">
+        <div class="col-lg-5 mb-5 mb-lg-0 order-lg-2" data-aos="fade" data-aos-delay="100">
+            <img src="../../public/images/user.png" alt="Image" class="img-fluid">
+        </div>
+        
+      <div class="col-lg-6 ml-auto order-lg-1">
+        <h2 class="text-white mb-4 name" data-aos="fade-left" data-aos-delay="200"> <% = user.firstName + " " + user.lastName %> </h2>
+        <div class="bio pr-lg-5">
+          <span class="text-uppercase text-primary d-block mb-3" data-aos="fade-right" data-aos-delay="300"><%= convertGrade(user.grade) %></span>
+          <p class="mb-4" data-aos="fade-left" data-aos-delay="400"><%= user.personalDescription %></p>
+          <p data-aos="fade-left" data-aos-delay="500">
+              <% if (user.alreadyOnATeam){ %>
+                    Join <%= user.firstName %>'s team &mdash;
+              
+              <%} else { %>
+                    Invite <%= user.firstName %> &mdash;
+              
+              <% } %>
+              
+            <a href="#" class="p-2"><span class="icon-plus" onclick = "this.class = 'icon-check'"></span></a>
+
+          </p>
+        </div>
+      </div>
+    </div>
+           
+           
+
+<% }) %>
+
+          
+        </div>
+    </div>
+    
+
+      <footer class="site-footer">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-4">
+            <h2 class="footer-heading text-uppercase mb-4">About Us</h2>
+            <p>We are working to improve team connection and communication.</p>
+          </div>
+        </div>
+        <div class="row">
+          
+            <div class="col-md-12 text-center">
+              <div class="border-top pt-5">
+              <p>
+
+              Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  </div>
+
+  <script src="../../public/template%20assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../../public/template%20assets/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../../public/template%20assets/js/jquery-ui.js"></script>
+  <script src="../../public/template%20assets/js/popper.min.js"></script>
+  <script src="../../public/template%20assets/js/bootstrap.min.js"></script>
+  <script src="../../public/template%20assets/js/owl.carousel.min.js"></script>
+  <script src="../../public/template%20assets/js/jquery.stellar.min.js"></script>
+  <script src="../../public/template%20assets/js/jquery.countdown.min.js"></script>
+  <script src="../../public/template%20assets/js/jquery.magnific-popup.min.js"></script>
+  <script src="../../public/template%20assets/js/bootstrap-datepicker.min.js"></script>
+  <script src="../../public/template%20assets/js/aos.js"></script>
+
+  <script src="../../public/js/main.js"></script>
+    
+  </body>
+</html>
