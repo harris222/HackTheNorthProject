@@ -57,67 +57,46 @@
           <div class="col-md-10">
             <span class="d-block mb-3 caption" data-aos="fade-up"><%= event.name %></span>
               <div class="d-block mb-3" data-aos="fade-up"><%= event.description%><div>
-                  <a href="#" class="btn-custom" data-aos="fade-up" data-aos-delay="400"><span>Hello</span></a>
             <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">Your Fellow Attendees</h1>
           </div>
         </div>
       </div>
+      <%if(found){%>
+        <div class="col-md-2">
+            <form action="/events/<%=event._id%>/add" method="POST">
+              <input type="submit" class="btn-custom" value="Register to Event" data-aos="fade-up" data-aos-delay="400">
+          </form>
+        </div>
+        <%}%>
     </div>
 
     <div class="site-section">
       <div class="container">
 
-<script>
-    function convertGrade(grade){
-        
-        if (grade == 11){
-            return "Grade 11";
-        } else if (grade == 12){
-            return "Grade 12"
-        } else if (grade == 1){
-            return "Year 1, University"
-        } else if (grade == 2){
-            return "Year 2, University"
-        } else if (grade == 3){
-            return "Year 3, University"
-        } else if (grade == 4){
-            return "Year 4, University"
-        } else{
-            return "Not in school"
-        }   
-    }   
-</script>
-
-<% event.participants.forEach(function(user){ %>  
-           
+<% event.participants.forEach(function(user){ %>
+  <% if(!(user._id == id)) {%>  
     <div class="row align-items-center speaker">
         <div class="col-lg-5 mb-5 mb-lg-0 order-lg-2" data-aos="fade" data-aos-delay="100">
-            <img src="../../public/images/user.png" alt="Image" class="img-fluid">
+            <img src="/images/user.png" alt="Image" class="img-fluid">
         </div>
         
       <div class="col-lg-6 ml-auto order-lg-1">
         <h2 class="text-white mb-4 name" data-aos="fade-left" data-aos-delay="200"> <%= user.firstName + " " + user.lastName %> </h2>
         <div class="bio pr-lg-5">
-          <span class="text-uppercase text-primary d-block mb-3" data-aos="fade-right" data-aos-delay="300"><%= convertGrade(user.grade) %></span>
-          <p class="mb-4" data-aos="fade-left" data-aos-delay="400"><%= user.personalDescription %></p>
-          <p data-aos="fade-left" data-aos-delay="500">
-              <% if (user.alreadyOnATeam){ %>
+          <p class="mb-4" data-aos="fade-left" data-aos-delay="400"><%= user.description %></p>
+          
+                      <p data-aos="fade-left" data-aos-delay="500">
+              
                     Join <%= user.firstName %>'s team &mdash;
-              
-              <%} else { %>
-                    Invite <%= user.firstName %> &mdash;
-              
-              <% } %>
-              
-            <a href="#" class="p-2"><span class="icon-plus" onclick = "this.class = 'icon-check'"></span></a>
 
-          </p>
+              
+            <a class="p-2"><span class="icon-plus" onclick = "this.style.color='green'"></span></a>
+</p>
         </div>
       </div>
     </div>
-           
-           
-
+  <%};%>
+          
 <% }); %>
 
           
@@ -127,24 +106,10 @@
 
       <footer class="site-footer">
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-4">
+
             <h2 class="footer-heading text-uppercase mb-4">About Us</h2>
             <p>Accessible Team Forming for Everyone.</p>
-          </div>
-        </div>
-        <div class="row">
-          
-            <div class="col-md-12 text-center">
-              <div class="border-top pt-5">
-              <p>
 
-              Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved
-
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </footer>
     

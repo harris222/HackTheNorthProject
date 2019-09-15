@@ -51,12 +51,40 @@ router.get("/new", (req, res) => {
 
 // SHOW - shows more info about one building
 router.get("/:id", (req, res) => {
+    var found;
     Event.findById(req.params.id).populate("participants").exec((err, foundEvent) => {
         if(err) {
             console.log(err);
             res.redirect("/events");
         } else {
-            res.render("events/show", {event:foundEvent});
+            foundEvent.participants.forEach((usr) => {
+                if(usr._id === req.user.id) {
+                    found = true;
+                }
+            });
+            res.render("events/show", {event:foundEvent, id: req.user.id, found: found});
+        }
+    });
+});
+
+router.post("/:id/add", (req, res) => {
+    User.findById(req.user.id, (err, user) => {
+        if(err) {
+            console.log(err);
+            res.redirect("/events/" + req.params.id);
+        } else {
+            Event.findById(req.params.id, (err,event) =>{
+                if(err){
+                    console.log(err);
+                    res.redirect("/events");
+                } else {
+                    event.participants.push(user);
+                    user.events.push(event);
+                    user.save();
+                    event.save();
+                    res.redirect("/events/" + req.params.id);
+                }
+            });
         }
     });
 });

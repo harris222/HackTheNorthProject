@@ -19,24 +19,13 @@ router.get("/register", (req, res) =>{
 });
 
 router.post("/register", (req, res) => {
-    if (req.body.sleepAtNight === "yes"){
-      req.body.sleepAtNight = true;
-    } else if (req.body.sleepAtNight === "no"){
-      req.body.sleepAtNight = false;
-    } // if
-
-    if(req.body.winningInterest === "high"){
-      req.body.winningInterest = true;
-    } else if(req.body.winningInterest === "low"){
-      req.body.winningInterest = false;
-    }
-
-    var newUser = new User({firstName: req.body.firstName, lastName: req.body.lastName});
-
-    /* email: req.body.email, gender: req.body.gender, sleepAtNight: req.body.sleepAtNight, grade: req.body.grade,
-    softwareSkill: req.body.softwareSkill, hardwareSkill: req.body.hardwareSkill, winningInterest: req.body.winningInterest,
-    personalDescription: req.body.personalDescription, alreadyOnATeam: req.body.alreadyOnATea */
-
+    var newUser = new User({username: req.body.username, 
+                            firstName: req.body.firstName, 
+                            lastName: req.body.lastName, 
+                            grade: req.body.grade, 
+                            softwareSkill: req.body.softwareSkill, 
+                            hardwareSkill: req.body.hardwareSkill,
+                            skills: req.body.skills});
     User.register(newUser, req.body.password, (err, user) => {
         if (err) {
             console.log(err);
