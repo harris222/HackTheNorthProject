@@ -1,3 +1,25 @@
+#numberJustify{
+  display: flex;
+  justify-content:space-between
+}
+
+#titleText{
+  text-align: center;
+}
+
+#fluid{
+  display: flex;
+  justify-content: center;
+  margin: 1%;
+}
+
+#registrationForm{
+  padding: 15px;
+  border-radius: 20px;
+  width: 40%;
+}
+
+
 /* Base */
 body {
   line-height: 1.7;
