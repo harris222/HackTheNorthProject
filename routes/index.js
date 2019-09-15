@@ -31,10 +31,12 @@ router.post("/register", (req, res) => {
       req.body.winningInterest = false;
     }
 
-    var newUser = new User({firstName: req.body.firstName, lastName: req.body.lastName,
-    gender: req.body.gender, sleepAtNight: req.body.sleepAtNight, grade: req.body.grade,
+    var newUser = new User({firstName: req.body.firstName, lastName: req.body.lastName});
+
+    /* email: req.body.email, gender: req.body.gender, sleepAtNight: req.body.sleepAtNight, grade: req.body.grade,
     softwareSkill: req.body.softwareSkill, hardwareSkill: req.body.hardwareSkill, winningInterest: req.body.winningInterest,
-    personalDescription: req.body.personalDescription, alreadyOnATeam: req.body.alreadyOnATeam});
+    personalDescription: req.body.personalDescription, alreadyOnATeam: req.body.alreadyOnATea */
+
     User.register(newUser, req.body.password, (err, user) => {
         if (err) {
             console.log(err);
