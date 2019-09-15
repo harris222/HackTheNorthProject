@@ -61,42 +61,23 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2">
-          <form action="/events/<%=event._id%>/add" method="POST">
-            <input type="submit" class="btn-custom" value="Register to Event" data-aos="fade-up" data-aos-delay="400">
-        </form>
-      </div>
+      <%if(found){%>
+        <div class="col-md-2">
+            <form action="/events/<%=event._id%>/add" method="POST">
+              <input type="submit" class="btn-custom" value="Register to Event" data-aos="fade-up" data-aos-delay="400">
+          </form>
+        </div>
+        <%}%>
     </div>
 
     <div class="site-section">
       <div class="container">
 
-<script>
-    function convertGrade(grade){
-        
-        if (grade == 11){
-            return "Grade 11";
-        } else if (grade == 12){
-            return "Grade 12"
-        } else if (grade == 1){
-            return "Year 1, University"
-        } else if (grade == 2){
-            return "Year 2, University"
-        } else if (grade == 3){
-            return "Year 3, University"
-        } else if (grade == 4){
-            return "Year 4, University"
-        } else{
-            return "Not in school"
-        }   
-    }   
-</script>
-
-<% event.participants.forEach(function(user){ %>  
-           
+<% event.participants.forEach(function(user){ %>
+  <% if(!(user._id == id)) {%>  
     <div class="row align-items-center speaker">
         <div class="col-lg-5 mb-5 mb-lg-0 order-lg-2" data-aos="fade" data-aos-delay="100">
-            <img src="../../public/images/user.png" alt="Image" class="img-fluid">
+            <img src="/images/user.png" alt="Image" class="img-fluid">
         </div>
         
       <div class="col-lg-6 ml-auto order-lg-1">
@@ -106,9 +87,8 @@
         </div>
       </div>
     </div>
-           
-           
-
+  <%};%>
+          
 <% }); %>
 
           

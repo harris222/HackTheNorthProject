@@ -51,12 +51,18 @@ router.get("/new", (req, res) => {
 
 // SHOW - shows more info about one building
 router.get("/:id", (req, res) => {
+    var found;
     Event.findById(req.params.id).populate("participants").exec((err, foundEvent) => {
         if(err) {
             console.log(err);
             res.redirect("/events");
         } else {
-            res.render("events/show", {event:foundEvent});
+            foundEvent.participants.forEach((usr) => {
+                if(usr._id === req.user.id) {
+                    found = true;
+                }
+            });
+            res.render("events/show", {event:foundEvent, id: req.user.id, found: found});
         }
     });
 });
