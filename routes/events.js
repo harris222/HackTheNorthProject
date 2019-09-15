@@ -61,4 +61,24 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.post("/:id/add", (req, res) => {
+    console.log("entered");
+    User.findById(req.user.id, (err, user) => {
+        if(err) {
+            console.log(err);
+        } else {
+            Event.findByIdAndUpdate(req.params.id, (err, updatedEvent) =>{
+                if(err) {
+                    console.log(err);
+                    res.redirect("/events");
+                } else {
+                    console.log("here");
+                    updatedEvent.participants.push(user);
+                    res.redirect("/events/" + req.params.id);
+                }
+            });
+        }
+    })
+});
+
 module.exports = router;

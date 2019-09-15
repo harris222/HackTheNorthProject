@@ -57,10 +57,14 @@
           <div class="col-md-10">
             <span class="d-block mb-3 caption" data-aos="fade-up"><%= event.name %></span>
               <div class="d-block mb-3" data-aos="fade-up"><%= event.description%><div>
-                  <a href="#" class="btn-custom" data-aos="fade-up" data-aos-delay="400"><span>Hello</span></a>
             <h1 class="d-block mb-4" data-aos="fade-up" data-aos-delay="100">Your Fellow Attendees</h1>
           </div>
         </div>
+      </div>
+      <div class="col-md-2">
+          <form action="/events/<%=event._id%>/add" method="POST">
+            <input type="submit" class="btn-custom" value="Register to Event" data-aos="fade-up" data-aos-delay="400">
+        </form>
       </div>
     </div>
 

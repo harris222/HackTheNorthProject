@@ -19,7 +19,13 @@ router.get("/register", (req, res) =>{
 });
 
 router.post("/register", (req, res) => {
-    var newUser = new User({firstName: req.body.firstName, lastName: req.body.lastName});
+    var newUser = new User({username: req.body.username, 
+                            firstName: req.body.firstName, 
+                            lastName: req.body.lastName, 
+                            grade: req.body.grade, 
+                            softwareSkill: req.body.softwareSkill, 
+                            hardwareSkill: req.body.hardwareSkill,
+                            skills: req.body.skills});
     User.register(newUser, req.body.password, (err, user) => {
         if (err) {
             console.log(err);
